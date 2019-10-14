@@ -8,9 +8,15 @@ export default class App extends Component {
     guessedLetters: []
   }
   update_guessedLetters(l){
+    if(this.state.guessedLetters.includes(l))
+    {
+      alert("You already use this letter "+{l})
+    }
+    else{
     this.setState({
-      guessedLetters: this.state.guessedLetters.push(l)
+      guessedLetters: [...this.state.guessedLetters,l]
     })
+  }
   }
   render() {
     return (
