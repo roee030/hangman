@@ -7,6 +7,11 @@ export default class App extends Component {
     word: Words[Math.floor(Math.random()* Words.length)],
     guessedLetters: []
   }
+  update_guessedLetters(l){
+    this.setState({
+      guessedLetters: this.state.guessedLetters.push(l)
+    })
+  }
   render() {
     return (
       <div className="App">
