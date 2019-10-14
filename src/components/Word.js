@@ -1,4 +1,4 @@
-export default words = [
+const words = [
     'people',
     'thing',
     'child',
@@ -1487,3 +1487,4 @@ export default words = [
     'exclusion',
     'execution'
   ];
+  export default words;

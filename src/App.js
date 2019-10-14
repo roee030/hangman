@@ -1,14 +1,16 @@
-import React from 'react';
-import './App.css';
-
-function App() {
-  return (
-    <>
-    <div className="App">
-    <h1>Hangman</h1>
-    </div>
-    </>
-  );
+import React, { Component } from 'react'
+import Words from './components/Word'
+import './App.css'
+export default class App extends Component {
+  state = {
+    word: Words[Math.floor(Math.random()* Words.length)]
+  }
+  render() {
+    return (
+      <div className="App">
+        <h1>Hangman</h1>
+        {this.state.word}
+      </div>
+    )
+  }
 }
-
-export default App;
