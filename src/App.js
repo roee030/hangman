@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import Words from './components/Word'
 import DisplayWord from './components/DisplayWord'
 import SubmitLetter from './components/SubmitLetter'
+import KeyboardEventHandler from 'react-keyboard-event-handler';
+
 import './App.css'
 export default class App extends Component {
   state = {
     word: Words[Math.floor(Math.random()* Words.length)],
     guessedLetters: []
   }
-  update_guessedLetters(l){
+  
+  update_guessedLetters = (l)=>{
     if(this.state.guessedLetters.includes(l))
     {
       alert("You already use this letter "+{l})
@@ -24,7 +27,7 @@ export default class App extends Component {
       <div className="App">
         <h1>Hangman</h1>
         <DisplayWord word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
-        <SubmitLetter/>
+        <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_guessedLetters(key)} />
       </div>
     )
   }
