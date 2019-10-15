@@ -9,11 +9,10 @@ export default class App extends Component {
   state = {
     word: Words[Math.floor(Math.random()* Words.length)],
     guessedLetters: [],
-    restart = false,
-    guessedRemaining = 5
+    guessedRemaining: 5
   }
   
-  update_guessedLetters = (l)=>{
+update_guessedLetters = (l)=>{
     if(this.state.guessedLetters.includes(l))
     {
       alert("You already use this letter "+{l})
@@ -29,15 +28,41 @@ update_guessedRemaining = (l) => {
     this.setState({guessedRemaining: this.state.guessedRemaining - 1})
   }
 }
-  
+
+wordIsGuessed = () => {
+  const guessedState = this.state.word.split('').map(l => {
+    if(this.state.guessedLetters.includes(l)){
+      return l
+    }
+  })
+  return guessedState.join('') === this.state.word
+}
+
+gameOver = () =>{
+  if(this.state.guessedRemaining<=0)
+  {
+    alert("You lose")
+  }
+  else if(this.wordIsGuessed)
+  {
+    alert("You won and guessed the word")
+  }
+}
+
+update_gameState = (l) =>{
+  this.update_guessedLetters(l)
+  this.update_guessedRemaining(l)
+  this.gameOver()
+}
   
   render() {
     return (
       <div className="App">
         <h1>Hangman</h1>
         {this.state.word}
+        {this.state.guessedRemaining}
         <DisplayWord word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
-        <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_guessedLetters(key)} />
+        <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_gameState(key)} />
       </div>
     )
   }
