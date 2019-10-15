@@ -26,6 +26,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <h1>Hangman</h1>
+        {this.state.word}
         <DisplayWord word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
         <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_guessedLetters(key)} />
       </div>

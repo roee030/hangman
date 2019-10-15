@@ -1,16 +1,19 @@
 import React from 'react'
-import WordStyle from './WordStyle'
 
-export default function DisplayWord({word}) {
-    word = word.split("")
-
-    var wordLetters = word.map(w=>{
-        return <WordStyle word={w}/>
-    })
+export default function DisplayWord({word,guessedLetters}) {
+    var wordLettersUnderscore = word.split('')
+    var answer = wordLettersUnderscore.map(l=>{
+        let letterState = ' '
+        if(guessedLetters.includes(l))
+        {
+            letterState = l
+        }
+        return letterState
+    }) 
     
     return (
         <div>
-            {wordLetters}
+            {answer}
         </div>
     )
 }
