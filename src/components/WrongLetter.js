@@ -10,6 +10,7 @@ export default function WrongLetter({guessedLetters , word}) {
     }
     return (
         <div className="WrongLetters">
+            <h1>You Missed:</h1>
             {getWrongLetters()}
         </div>
     )

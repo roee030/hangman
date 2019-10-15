@@ -12,7 +12,8 @@ export default class App extends Component {
     word: Words[Math.floor(Math.random()* Words.length)],
     guessedLetters: [],
     guessedRemaining: 11,
-    imagesNumber: 0
+    imagesNumber: 0,
+    
   }
 /**
  * @param {l} letter from user input
@@ -20,7 +21,7 @@ export default class App extends Component {
  * the letter and if not we add the letter to the array of guessedLetters.
  */
 update_guessedLetters = (l)=>{
-  console.log(this.state.guessedLetters)
+  
     if(this.state.guessedLetters.includes(l))
     {
       alert("You already guessed the letter "+l)
@@ -44,7 +45,12 @@ wordIsGuessed = () => {
       return l
     }
   })
-  return guessedState.join('') === this.state.word
+  if( guessedState.join('') === this.state.word)
+  {
+    this.setState(({word: Words[Math.floor(Math.random()* Words.length)]}))
+    this.setState({guessedLetters: []})
+    
+  }
 }
 
 gameOver = () =>{
@@ -52,33 +58,32 @@ gameOver = () =>{
   {
     alert("You lose")
   }
-  else if(this.wordIsGuessed)
-  {
-    //alert("You guessed the word")
-  }
+
 }
 
 update_gameState = (l) =>{
   this.update_guessedLetters(l)
   this.gameOver()
+  this.wordIsGuessed()
+
 }
   
   render() {
     return (
-      <div className="App">
-      
+      <div className="Container">
         <div className="wrapper">
-          <img className="imgs" src={"./images/"+this.state.imagesNumber+".jpg"}/>
-          <DisplayWord className="answer" word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
+          <div className="wrapper1">
+            <img className="imgs" src={"./images/"+this.state.imagesNumber+".jpg"}/>
+            <WrongLetter className="wrong-answer" word={this.state.word} guessedLetters = {this.state.guessedLetters} />
 
-          
-        </div>
-        <WrongLetter className="wronga" word={this.state.word} guessedLetters = {this.state.guessedLetters} />
-        {this.state.word}
-        <h1>{this.state.guessedRemaining}</h1>
-        <div className="answerguess">
-        </div>
-        <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_gameState(key)} />
+          </div>
+          <div className="wrapper2">
+          <DisplayWord className="answer" word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
+          </div>
+          </div>
+          <h1>{this.state.guessedRemaining}</h1>
+          {this.state.word}
+          <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_gameState(key)} />
       </div>
     )
   }
