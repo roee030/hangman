@@ -56,7 +56,7 @@ wordIsGuessed = () => {
 gameOver = () =>{
   if(this.state.guessedRemaining<=0)
   {
-    alert("You lose")
+   
     document.getElementById("btn").style.visibility = "visible";
   }
 
