@@ -57,10 +57,16 @@ gameOver = () =>{
   if(this.state.guessedRemaining<=0)
   {
     alert("You lose")
+    document.getElementById("btn").style.visibility = "visible";
   }
 
 }
-
+newGame = () =>{
+  document.getElementById("btn").style.visibility = "hidden";
+  this.setState(({word: Words[Math.floor(Math.random()* Words.length)]}))
+  this.setState({guessedLetters: []})
+  this.setState({imagesNumber: 0})
+}
 update_gameState = (l) =>{
   this.update_guessedLetters(l)
   this.gameOver()
@@ -75,14 +81,14 @@ update_gameState = (l) =>{
         <div className="wrapper1">
           <img className="imgs" src={"./images/"+this.state.imagesNumber+".jpg"}/>
           <WrongLetter className="wrong-answer" word={this.state.word} guessedLetters = {this.state.guessedLetters} />
-          {this.state.word}
+          
         </div>
         <div className="wrapper2">
         <DisplayWord className="answer" word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
         </div>
         </div>
         
-        
+        <button className="btn-gameOver" id="btn" onClick={() => this.newGame()}>Game-Over try new word</button>
         <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_gameState(key)} />
       </div>
     )

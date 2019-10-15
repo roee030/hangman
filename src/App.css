@@ -25,3 +25,19 @@ position: relative;
  
  
 }
+.btn-gameOver{
+  font-size: 50px;
+  position: absolute;
+  right:20%;
+  top:40%;
+  visibility: hidden;
+  background-color: khaki;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 14px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  float: left;
+  cursor: pointer;
+  transition: all 0.5s;
+
+}
