@@ -22,14 +22,15 @@ update_guessedLetters = (l)=>{
     {
       alert("You already guessed the letter "+l)
     }
+    else if (!this.state.word.split('').includes(l) && !this.state.guessedLetters.includes(l)){
+      this.setState({guessedRemaining: this.state.guessedRemaining - 1})
+
+    }
     else{
     this.setState({
       guessedLetters: [...this.state.guessedLetters,l]
     })
   }
-}
-update_guessedRemaining = () => {
-    this.setState({guessedRemaining: this.state.guessedRemaining - 1})
 }
 
 wordIsGuessed = () => {
