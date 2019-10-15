@@ -1,4 +1,21 @@
 .App {
-  text-align: center;
+  margin: 40px;
+  background-color: white;
+  display: flex;
+}
 
+.App > .imgs
+{
+  position: relative ;
+  right: 0px;
+}
+.wronga
+{
+  position: absolute;
+  flex-direction: row-reverse ;
+  color: blueviolet;
+}
+.answerguess 
+{
+  position: flex;
 }

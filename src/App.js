@@ -4,13 +4,15 @@ import DisplayWord from './components/DisplayWord'
 import SubmitLetter from './components/SubmitLetter'
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 
+
 import './App.css'
 import WrongLetter from './components/WrongLetter';
 export default class App extends Component {
   state = {
     word: Words[Math.floor(Math.random()* Words.length)],
     guessedLetters: [],
-    guessedRemaining: 5
+    guessedRemaining: 11,
+    imagesNumber: 0
   }
 /**
  * @param {l} letter from user input
@@ -18,12 +20,15 @@ export default class App extends Component {
  * the letter and if not we add the letter to the array of guessedLetters.
  */
 update_guessedLetters = (l)=>{
+  console.log(this.state.guessedLetters)
     if(this.state.guessedLetters.includes(l))
     {
       alert("You already guessed the letter "+l)
     }
     else if (!this.state.word.split('').includes(l) && !this.state.guessedLetters.includes(l)){
       this.setState({guessedRemaining: this.state.guessedRemaining - 1})
+      this.setState({guessedLetters: [...this.state.guessedLetters,l]})
+      this.setState({imagesNumber: this.state.imagesNumber+1})
 
     }
     else{
@@ -61,11 +66,18 @@ update_gameState = (l) =>{
   render() {
     return (
       <div className="App">
-        <h1>Hangman</h1>
+      
+        <div className="wrapper">
+          <img className="imgs" src={"./images/"+this.state.imagesNumber+".jpg"}/>
+          <DisplayWord className="answer" word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
+
+          
+        </div>
+        <WrongLetter className="wronga" word={this.state.word} guessedLetters = {this.state.guessedLetters} />
         {this.state.word}
         <h1>{this.state.guessedRemaining}</h1>
-        <WrongLetter word={this.state.word} guessedLetters = {this.state.guessedLetters} />
-        <DisplayWord word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
+        <div className="answerguess">
+        </div>
         <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_gameState(key)} />
       </div>
     )
