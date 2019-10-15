@@ -54,7 +54,7 @@ gameOver = () =>{
 
 update_gameState = (l) =>{
   this.update_guessedLetters(l)
-  this.update_guessedRemaining(l)
+  //this.update_guessedRemaining(l)
   //this.gameOver()
 }
   
