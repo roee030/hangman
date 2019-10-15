@@ -66,6 +66,7 @@ newGame = () =>{
   this.setState(({word: Words[Math.floor(Math.random()* Words.length)]}))
   this.setState({guessedLetters: []})
   this.setState({imagesNumber: 0})
+  this.setState({guessedRemaining: 11})
 }
 update_gameState = (l) =>{
   this.update_guessedLetters(l)
