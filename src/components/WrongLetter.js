@@ -1,15 +1,15 @@
 import React from 'react'
 import './WrongLetter.css'
-export default function WrongLetter() {
-    getWrongLetters = () => {
-        const wrong = this.props.guessedLetters.filter(l =>{
-            return !this.props.word.split('').includes(l)
+export default function WrongLetter({guessedLetters , word}) {
+    function getWrongLetters()  {
+        const wrong = guessedLetters.filter(l =>{
+            return !word.split('').includes(l)
         })
         return wrong
     }
     return (
         <div className="WrongLetters">
-            {this.getWrongLetters()}
+            {getWrongLetters()}
         </div>
     )
 }

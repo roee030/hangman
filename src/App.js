@@ -28,10 +28,8 @@ update_guessedLetters = (l)=>{
     })
   }
 }
-update_guessedRemaining = (l) => {
-  if( !this.state.word.split('').includes(l) && !this.state.guessedLetters.includes(l) ){
+update_guessedRemaining = () => {
     this.setState({guessedRemaining: this.state.guessedRemaining - 1})
-  }
 }
 
 wordIsGuessed = () => {
@@ -66,7 +64,7 @@ update_gameState = (l) =>{
         <h1>Hangman</h1>
         {this.state.word}
         <h1>{this.state.guessedRemaining}</h1>
-        <WrongLetter word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
+        <WrongLetter word={this.state.word} guessedLetters = {this.state.guessedLetters} />
         <DisplayWord word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
         <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_gameState(key)} />
       </div>
