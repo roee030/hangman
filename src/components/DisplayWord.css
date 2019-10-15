@@ -1,7 +1,7 @@
 .wordWrapper{
   position: fixed;  
   right: 300px;
-  bottom: -120px;
+  bottom: 0px;
 }
 /*display: inline; /* the default for span 
   width: 100px;
