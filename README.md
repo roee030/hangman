@@ -2,7 +2,7 @@ In this project by @Roee030 I build a Hangman-Game In React JS.
 I am using KeyboardEventHandler API to handle the keyboad input.
 Just Install the dependencies and start to play!🎉
 ![Alt text](https://img.techpowerup.org/191015/1105.jpg "Optional title")
-[I'm an inline-style link](https://bit.ly/2VIphBr)
+[link to Demo](https://bit.ly/2VIphBr)
 
 ## Available Scripts
 
