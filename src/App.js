@@ -71,19 +71,19 @@ update_gameState = (l) =>{
   render() {
     return (
       <div className="Container">
-        <div className="wrapper">
-          <div className="wrapper1">
-            <img className="imgs" src={"./images/"+this.state.imagesNumber+".jpg"}/>
-            <WrongLetter className="wrong-answer" word={this.state.word} guessedLetters = {this.state.guessedLetters} />
-
-          </div>
-          <div className="wrapper2">
-          <DisplayWord className="answer" word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
-          </div>
-          </div>
-          <h1>{this.state.guessedRemaining}</h1>
+      <div className="wrapper">
+        <div className="wrapper1">
+          <img className="imgs" src={"./images/"+this.state.imagesNumber+".jpg"}/>
+          <WrongLetter className="wrong-answer" word={this.state.word} guessedLetters = {this.state.guessedLetters} />
           {this.state.word}
-          <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_gameState(key)} />
+        </div>
+        <div className="wrapper2">
+        <DisplayWord className="answer" word={this.state.word} guessedLetters = {this.state.guessedLetters}/>
+        </div>
+        </div>
+        
+        
+        <KeyboardEventHandler handleKeys={['alphanumeric']} onKeyEvent={(key) => this.update_gameState(key)} />
       </div>
     )
   }

@@ -2,7 +2,7 @@
   width: 480px;
   height:360px;
   margin-top: 30px;
-  position: static;
+  position: relative;
   background-color: white;
   padding: 190px 220px 20px 220px;
 }
@@ -20,8 +20,8 @@
   bottom:0;
 }
 
-.wrapper2 {
-  margin-top: absolute;
-  left: 0;
-  bottom:0;
+.wrapper2{
+position: relative;
+ 
+ 
 }
