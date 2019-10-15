@@ -49,14 +49,13 @@ gameOver = () =>{
   }
   else if(this.wordIsGuessed)
   {
-    alert("You won and guessed the word")
+    //alert("You guessed the word")
   }
 }
 
 update_gameState = (l) =>{
   this.update_guessedLetters(l)
-  //this.update_guessedRemaining(l)
-  //this.gameOver()
+  this.gameOver()
 }
   
   render() {
