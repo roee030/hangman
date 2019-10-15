@@ -8,7 +8,9 @@ import './App.css'
 export default class App extends Component {
   state = {
     word: Words[Math.floor(Math.random()* Words.length)],
-    guessedLetters: []
+    guessedLetters: [],
+    restart = false,
+    guessedRemaining = 5
   }
   
   update_guessedLetters = (l)=>{
@@ -21,7 +23,14 @@ export default class App extends Component {
       guessedLetters: [...this.state.guessedLetters,l]
     })
   }
+}
+update_guessedRemaining = (l) => {
+  if(!this.state.guessedLetters.includes(l) && !this.state.word.split('').includes(l)){
+    this.setState({guessedRemaining: this.state.guessedRemaining - 1})
   }
+}
+  
+  
   render() {
     return (
       <div className="App">

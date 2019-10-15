@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './DisplayWord.css'
 export default function DisplayWord({word,guessedLetters}) {
     var wordLettersUnderscore = word.split('')
     var answer = wordLettersUnderscore.map(l=>{
@@ -12,7 +12,7 @@ export default function DisplayWord({word,guessedLetters}) {
     }) 
     
     return (
-        <div>
+        <div className="wordWrapper">
             {answer}
         </div>
     )
