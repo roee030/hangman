@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this project by @Roee030 I build a Hangman-Game In React JS.
+I am using KeyboardEventHandler API to handle the keyboad input.
+Just Install the dependencies and start to play!
 
 ## Available Scripts
 
