@@ -1,5 +1,6 @@
 import React from 'react'
 import './DisplayWord.css'
+import StyleLetter from './StyleLetter'
 export default function DisplayWord({word,guessedLetters}) {
     var wordLettersUnderscore = word.split('')
     var answer = wordLettersUnderscore.map(l=>{
@@ -8,7 +9,7 @@ export default function DisplayWord({word,guessedLetters}) {
         {
             letterState = l
         }
-        return letterState
+        return <StyleLetter letter={letterState}/>
     }) 
     
     return (
